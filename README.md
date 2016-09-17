@@ -1,6 +1,6 @@
 #### Done:
 1. Used wget to get local page of https://en.wikipedia.org/wiki/Atlantic_hurricane_season
-2. parsed html file and wrote data into SQLite database 
+2. Parsed html file and wrote data into SQLite database 
  
 
 #### Queries about the scraped data: 
@@ -67,22 +67,10 @@ print cur.fetchone()
     (1860, 1)
 
 
-#### Notes:
-
-Is this observation level data? If not, what would be observation level data? Detail a plan for obtaining that data from Wikipedia.
-
-Ans: I think some data in recent decades might be the observation data, but in some early years prior to 1950, the data are not observation data. According to wikipedia (https://en.wikipedia.org/wiki/Atlantic_hurricane_reanalysis_project), the storms from 1886 to 1955 in the database has been reanalysed in recent years and adjustments to the numbers have been made, so the data in those old days are no longer observational. 
-
-Observation level data are data collected through watching someone or something either via eyes or instruments, and the treatment of the observed subject is beyond control of the investigators. 
-
-Plan for obtaining that data from Wikipedia:
-I might say Wikipedia is probably not a good choice to obtain observation level data, because the pages in Wikipedia can be editted by anyone in the world. But if I have to obtain the observatonal data from Wikipedia, I need to determine whether the data I am interested in are observational or not. I will first examine articles in the references and see if I can find any informatin about how the data are collected. Also I may want to look through the page history of the Wikipedia article and see who has worked on the page and the individual edits in the edit history. 
+#### Notes about data :
 
 
-
-Note about the apparent change in accounding for tropical storms and hurricanes in 1870s onwards: since I am not the domain expert and I am lack of information about how the atlantic hurricanes are tracked,I will just assume the numbers are correct and leave them there.
-
-Note about the number of hurricanes and the number of major hurricanes: I defined the data type for these two columns as integers, making them comparable for the queries. 
+Defined the data type for these two columns as integers, making them comparable for the queries. 
 
 Note about the value of "deaths": I noticed that non-numerical characters such as "+", "," and "~" in the values of deaths column, I decided to delete these characters, for example "200+" becomes "200", as "+" and "~" indicate an approximate estimate, so deleting them has a trivial effect on the later exploratory analysis of data. As to the "None", "Numerous", "Not Known" and "Unknown" values in this column, I converted them to integer zero so the data type for the deaths column will be integers.
 
